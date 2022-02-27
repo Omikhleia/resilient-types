@@ -103,6 +103,7 @@ SILE.settings.declare({
     help = "Vertical offset between the chord name and the text."
   })
 
+-- FIXME undocumented
 SILE.settings.declare({
     parameter = "chordmode.lineheight",
     type = "length",
@@ -128,9 +129,9 @@ into:
 \end{chordmode}
 \par
 
-The chords can be styled by redefining the \code{chordmode:chordfont}
+The chords can be styled by redefining the \autodoc:command{chordmode:chordfont}
 command, and the offset between the chord name and text set with the
-\code{chordmode:offset} parameter.
+\autodoc:setting{chordmode.offset} setting.
 
 \end{document}
 ]]
