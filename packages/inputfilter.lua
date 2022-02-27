@@ -41,8 +41,8 @@ input of a SILE document after it is parsed but before it is processed. It does
 this by allowing you to rewrite the abstract syntax tree representing the document.
 
 Loading \autodoc:package{inputfilter} into your class with \code{class:loadPackage("inputfilter")}
-provides you with two new Lua functions: \code{transformContent} and \code{createCommand}.
-\code{transformContent} takes a content tree and applies a transformation function to the
+provides you with two new Lua functions: \autodoc:function{transformContent} and \autodoc:function{createCommand}.
+\autodoc:function{transformContent} takes a content tree and applies a transformation function to the
 text within it. See \url{https://sile-typesetter.org/examples/inputfilter.sil} for a simple example, and
 \code{packages/chordmode.sil} for a more complete one.
 \end{document}
