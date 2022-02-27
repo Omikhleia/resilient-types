@@ -134,7 +134,7 @@ SILE.doTexlike([[%
   end,
   documentation = [[
 \begin{document}
-The \code{tableofcontents} package provides tools for class authors to
+The \autodoc:package{tableofcontents} package provides tools for class authors to
 create tables of contents. When you are writing sectioning commands such
 as \code{\\chapter} or \code{\\section}, your classes should call the
 \code{\\tocentry[level=...]\{Entry\}} command to register a table of
@@ -152,7 +152,7 @@ then to write the table of contents.
 The \autodoc:command{\\tableofcontents} command accepts a \autodoc:param{depth} option to
 control the depth of the content added to the table.
 
-If the \code{pdf} package is loaded before using sectioning commands,
+If the \autodoc:package{pdf} package is loaded before using sectioning commands,
 then a PDF document outline will be generated.
 Moreover, entries in the table of contents will be active links to the
 relevant sections. To disable the latter behavior, pass \code{linking=false} to

@@ -95,7 +95,7 @@ SILE.registerCommand("rotate", function(options, content)
 end)
 
 return { documentation = [[\begin{document}
-The \code{rotate} package allows you to rotate things. You can rotate entire
+The \autodoc:package{rotate} package allows you to rotate things. You can rotate entire
 frames, by adding the \code{rotate=<angle>} declaration to your frame declaration,
 and you can rotate any content by issuing the command \code{\\rotate[angle=<angle>]\{...\}},
 where \code{<angle>} is measured in degrees.

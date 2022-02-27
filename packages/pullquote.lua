@@ -66,7 +66,7 @@ end, "Typesets its contents in a formatted blockquote with decorative quotation\
 
 return { documentation = [[\begin{document}
 
-The \code{pullquote} command formats longer quotations in an indented
+The \autodoc:package{pullquote} command formats longer quotations in an indented
 blockquote block with decorative quotation marks in the margins.
 
 Here is some text set in a pullquote environment:

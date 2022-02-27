@@ -143,7 +143,7 @@ inserts PDF hyperlinks,
 
 The \autodoc:command{\\href} command accepts the same \autodoc:param{borderwidth},
 \autodoc:param{bordercolor}, \autodoc:param{borderstyle} and \autodoc:param{borderoffset} styling
-options as the \autodoc:command{\\pdf:link} command from the \code{pdf} package,
+options as the \autodoc:command{\\pdf:link} command from the \autodoc:package{pdf} package,
 for instance
 \href[src=http://www.sile-typesetter.org/, borderwidth=0.4pt,
   bordercolor=blue, borderstyle=underline]{like this}.

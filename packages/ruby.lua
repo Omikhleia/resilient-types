@@ -109,7 +109,7 @@ difficult kanji or foreign words. These hints are traditionally placed either
 above (in horizontal typesetting) or beside (in vertical typesetting) the word
 that they explain. The typesetting term for these glosses is \em{ruby}.
 
-The \code{ruby} package provides the \code{\\ruby[reading=...]\{...\}} command
+The \autodoc:package{ruby} package provides the \code{\\ruby[reading=...]\{...\}} command
 which sets a piece of ruby above or beside the base text. For example:
 
 % Unit zw throws errors if there is not way to shape あ
