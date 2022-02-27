@@ -149,7 +149,7 @@ this, documents with a table of contents need to be processed at least
 twice—once to collect the entries and work out which pages they’re on,
 then to write the table of contents.
 
-The \autodoc:command{\\tableofcontents} command accepts a \code{depth} option to
+The \autodoc:command{\\tableofcontents} command accepts a \autodoc:param{depth} option to
 control the depth of the content added to the table.
 
 If the \code{pdf} package is loaded before using sectioning commands,

@@ -101,7 +101,7 @@ provides the following commands:
 the counter called \code{<counter-name>} to the \code{<value>} given.
 
 • \code{\\increment-counter[id=\em{<counter-name>}]} — does the
-same as \autodoc:command{\\set-counter} except that when no \code{value} parameter
+same as \autodoc:command{\\set-counter} except that when no \autodoc:param{value} parameter
 is given, the counter is incremented by one.
 
 • \code{\\show-counter[id=\em{<counter-name>}]} — this typesets the

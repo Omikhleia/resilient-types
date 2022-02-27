@@ -152,19 +152,19 @@ entries. It provides the four commands \autodoc:command{\\pdf:destination}, \aut
 \autodoc:command{\\pdf:bookmark}, and \autodoc:command{\\pdf:metadata}.
 
 The \autodoc:command{\\pdf:destination} parameter creates a link target; it expects a
-parameter called \code{name} to uniquely identify the target. To create a link to
+parameter called \autodoc:param{name} to uniquely identify the target. To create a link to
 that location in the document, use \code{\\pdf:link[dest=\goodbreak{}name]\{link content\}}.
 
 The \autodoc:command{\\pdf:link} command accepts several options defining its border style:
-a \code{borderwidth} length setting the border width (defaults to 0, meaning no border),
-a \code{borderstyle} string (can be set to “underline” or “dashed”, otherwise a
+a \autodoc:param{borderwidth} length setting the border width (defaults to 0, meaning no border),
+a \autodoc:param{borderstyle} string (can be set to “underline” or “dashed”, otherwise a
 solid box),
-a \code{bordercolor} color specification for this border (defaults to blue),
-and finally a \code{borderoffset} length for adjusting the border with some vertical space
+a \autodoc:param{bordercolor} color specification for this border (defaults to blue),
+and finally a \autodoc:param{borderoffset} length for adjusting the border with some vertical space
 above the content and below the baseline (defaults to 1pt). Note that PDF renderers may vary on how
 they honor these border styling features on link annotations.
 
-It also has an \code{external} option for URL links, which is not intended to be used
+It also has an \autodoc:param{external} option for URL links, which is not intended to be used
 directly—refer to the \code{url} package for more flexibility typesetting external
 links.
 
