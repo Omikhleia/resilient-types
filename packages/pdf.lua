@@ -148,14 +148,14 @@ end)
 
 return { documentation = [[\begin{document}
 The \code{pdf} package enables (basic) support for PDF links and table-of-contents
-entries. It provides the four commands \command{\\pdf:destination}, \command{\\pdf:link},
-\command{\\pdf:bookmark}, and \command{\\pdf:metadata}.
+entries. It provides the four commands \autodoc:command{\\pdf:destination}, \autodoc:command{\\pdf:link},
+\autodoc:command{\\pdf:bookmark}, and \autodoc:command{\\pdf:metadata}.
 
-The \command{\\pdf:destination} parameter creates a link target; it expects a
+The \autodoc:command{\\pdf:destination} parameter creates a link target; it expects a
 parameter called \code{name} to uniquely identify the target. To create a link to
 that location in the document, use \code{\\pdf:link[dest=\goodbreak{}name]\{link content\}}.
 
-The \command{\\pdf:link} command accepts several options defining its border style:
+The \autodoc:command{\\pdf:link} command accepts several options defining its border style:
 a \code{borderwidth} length setting the border width (defaults to 0, meaning no border),
 a \code{borderstyle} string (can be set to “underline” or “dashed”, otherwise a
 solid box),

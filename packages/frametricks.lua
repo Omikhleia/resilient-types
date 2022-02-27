@@ -237,7 +237,7 @@ current class are displayed.
 It’s possible to define frames such as sidebars which are not connected
 to the main text flow of a page. We’ll see how to do that in a later chapter, but
 this raises the obvious question: if they’re not part of the text flow, how do we
-get stuff into them? \code{frametricks} provides the \command{\\typeset-into}
+get stuff into them? \code{frametricks} provides the \autodoc:command{\\typeset-into}
 command, which allows you to write text into a specified frame:
 
 \begin{verbatim}
