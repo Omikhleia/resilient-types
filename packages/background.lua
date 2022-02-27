@@ -25,7 +25,7 @@ end, "Draws a solid background color <color> on pages after initialization.")
 return { documentation = [[\begin{document}
 The \code{background} package allows you to set the color of the canvas
 background (by drawing a solid color block the full size of the page on page
-initialization). The package provides a \code{\\background} command which
+initialization). The package provides a \autodoc:command{\\background} command which
 requires at least one parameter,
 \code{color=\em{<color \nobreak{}specification}}, and sets the backgound of the
 current and all following pages to that color. If setting only the current page

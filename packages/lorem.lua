@@ -93,7 +93,7 @@ end)
 return {
   documentation = [[
 \begin{document}
-Sometimes you just need some dummy text. The command \code{\\lorem}
+Sometimes you just need some dummy text. The command \autodoc:command{\\lorem}
 produces fifty words of “lorem ipsum”; you can choose a different
 number of words with the \code{[words=...]} parameter. Here’s
 \code{\\lorem[words=20]}:

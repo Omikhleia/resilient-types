@@ -12,7 +12,7 @@ end, "Changes the active ink color to the color <color>.")
 return { documentation = [[\begin{document}
 The \code{color} package allows you to temporarily change the color of the
 (virtual) ink that SILE uses to output text and rules. The package provides
-a \code{\\color} command which takes one parameter, \code{color=\em{<color \nobreak{}specification>}}, and typesets
+a \autodoc:command{\\color} command which takes one parameter, \code{color=\em{<color \nobreak{}specification>}}, and typesets
 its argument in that color. The color specification is the same as HTML:
 it can be a RGB color value in \code{#xxx} or \code{#xxxxxx} format, where \code{x}
 represents a hexadecimal digit (\code{#000} is black, \code{#fff} is white,

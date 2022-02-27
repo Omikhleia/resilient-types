@@ -72,7 +72,7 @@ produces the following:
 
 \svg[src=packages/svg/smiley.svg,height=12pt]
 
-The second is a more experimental \code{\\svg-glyph}. When the current font is
+The second is a more experimental \autodoc:command{\\svg-glyph}. When the current font is
 set to an SVG font, SILE does not currently render the SVG glyphs
 automatically. This command is intended to be used as a means of eventually
 implementing SVG fonts; it retrieves the SVG glyph provided and renders it.
