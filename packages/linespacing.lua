@@ -143,7 +143,7 @@ users of TeX, but it is not the most friendly system for book designers. The
 \code{linespacing} package provides a better choice of leading systems.
 
 After loading the package (with \code{\\script[src=packages/linespacing]}),
-you are able to choose the linespacing mode by setting the \code{linespacing.method}
+you are able to choose the linespacing mode by setting the \autodoc:setting{linespacing.method}
 parameter. The following examples have funny sized words in them so that you can see
 how the different methods interact.
 
