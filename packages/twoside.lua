@@ -50,9 +50,12 @@ return {
         self.switchMaster(self.oddPageMaster)
       end
     end
-  }, documentation = [[
+  }, 
+-- FIXME package documentation should be self-consistent and shouldn't refer to book class
+-- and SILE manual chapters...
+  documentation = [[
 \begin{document}
-The \code{book} class described in chapter 4 sets up left and right mirrored
+The \autodoc:class{book} class described in chapter 4 sets up left and right mirrored
 page masters; the \autodoc:package{twoside} package is responsible for swapping between
 the two left and right frames, running headers and so on. It has no user-serviceable
 parts.
