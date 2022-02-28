@@ -175,17 +175,17 @@ In normal typesetting, SILE determines the spacing between lines of type
 according to the following two rules:
 
 \noindent• SILE tries to insert space between two successive lines so that their baselines
-are separated by a fixed distance called the \code{baselineskip}.
+are separated by a fixed distance called the \autodoc:code{baselineskip}.
 
 \noindent• If this first rule would mean that the bottom and the top of the lines are less
 than two points apart, then they are forced to be two points apart. (This distance
-is configurable, and called the \code{lineskip})
+is configurable, and called the \autodoc:code{lineskip})
 
 The second rule is designed to avoid the situation where the first line has a long
 descender (letters such as g, q, j, p, etc.) which abuts a high ascender on the second
 line. (k, l, capitals, etc.)
 
-In addition, the \code{baselineskip} contains a certain amount of ‘stretch’, so that
+In addition, the \autodoc:code{baselineskip} contains a certain amount of ‘stretch’, so that
 the lines can expand if this would help with producing a page break at an optimal
 location, and similarly spacing between paragraphs can stretch or shrink.
 
@@ -206,10 +206,11 @@ the paper; on the right, no such guarantee is made.
 The \autodoc:package{grid} package alters the way that the SILE’s typesetter operates so that
 the two rules above do not apply; lines are always aligned on a fixed grid, and
 spaces between paragraphs etc. are adjusted to conform to the grid. Loading the package
-adds two new commands to SILE: \code{\\grid[spacing=\em{<dimension>}]} and \autodoc:command{\\no-grid}.
+adds two new commands to SILE: \autodoc:command{\\grid}\autodoc:code{[spacing=\em{<dimension>}]}
+and \autodoc:command{\\no-grid}.
 The first turns on grid typesetting for the remainder of the document; the second turns it off again.
 
-At the start of this section, we issued the command \code{\\grid[spacing=15pt]} to
+At the start of this section, we issued the command \autodoc:code{\\grid[spacing=15pt]} to
 set up a regular 15-point grid. Here is some text typeset with the grid set up:
 
 \smallskip

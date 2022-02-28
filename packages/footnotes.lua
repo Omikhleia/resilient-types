@@ -101,11 +101,12 @@ return {
   exports = {
     outputInsertions = insertions.exports.outputInsertions
   },
+-- FIXME documentation refers to the book class, not generic enough (other classes could use it as well)
   documentation = [[
 \begin{document}
-We’ve seen that the \code{book} class allows you to add
+We’ve seen that the \autodoc:class{book} class allows you to add
 footnotes to text with the \autodoc:command{\\footnote} command. This command is
-actually provided by the \autodoc:package{footnotes} package. The \code{book}
+actually provided by the \autodoc:package{footnotes} package. The \autodoc:class{book}
 class loads up the package and tells it where to put the footnotes
 that are typeset, and the \autodoc:package{footnotes} package takes care of
 formatting the footnotes. It does this by using a number of other

@@ -44,7 +44,7 @@ return {
 \begin{document}
 The \font{textcase} package provides commands for language-aware case conversion
 of input text. For example, when language is set to English, then
-\code{\\uppercase\{hij\}} will return \examplefont{\uppercase{hij}}. However,
+\autodoc:code{\\uppercase\{hij\}} will return \examplefont{\uppercase{hij}}. However,
 when language is set to Turkish, it will return
 \examplefont{\font[language=tr]{\uppercase{hij}}}.
 

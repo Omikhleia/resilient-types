@@ -120,7 +120,7 @@ which draws a line of a given length and thickness, although it calls these
 
 Lines are treated just like other text to be output, and so can appear in the
 middle of a paragraph, like this: \hrule[width=20pt, height=0.5pt] (that one
-was generated with \code{\\hrule[width=20pt, height=0.5pt]}.)
+was generated with \autodoc:code{\\hrule[width=20pt, height=0.5pt]}.)
 
 Like images, rules are placed along the baseline of a line of text.
 
@@ -131,7 +131,7 @@ underlines its contents.
 Underlining is horrible typographic practice, and
 you should \underline{never} do it.}
 
-(That was produced with \code{\\underline\{never\}}.)
+(That was produced with \autodoc:code{\\underline\{never\}}.)
 
 Finally, \autodoc:command{fullrule} draws a thin line across the width of the current frame.
 \end{document}]] }

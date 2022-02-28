@@ -95,8 +95,8 @@ return {
 \begin{document}
 Sometimes you just need some dummy text. The command \autodoc:command{\\lorem}
 produces fifty words of “lorem ipsum”; you can choose a different
-number of words with the \code{[words=...]} parameter. Here’s
-\code{\\lorem[words=20]}:
+number of words with the \autodoc:param{words} parameter. Here’s
+\autodoc:code{\\lorem[words=20]}:
 
 \examplefont{\lorem[words=20]}
 \end{document}

@@ -12,7 +12,7 @@ return {
 documentation = [[
 \begin{document}
 This package provides two commands: \autodoc:command{debug}, which turns
-on and off SILE’s internal debugging flags (similar to using \code{--debug=...}
+on and off SILE’s internal debugging flags (similar to using \autodoc:code{--debug=...}
 on the command line); and \autodoc:command{disable-pushback} which is used
 by SILE’s developers to turn off the typesetter’s pushback routine, because we
 don’t really trust it very much.

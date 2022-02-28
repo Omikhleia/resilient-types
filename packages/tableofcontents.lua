@@ -136,8 +136,8 @@ SILE.doTexlike([[%
 \begin{document}
 The \autodoc:package{tableofcontents} package provides tools for class authors to
 create tables of contents. When you are writing sectioning commands such
-as \code{\\chapter} or \code{\\section}, your classes should call the
-\code{\\tocentry[level=...]\{Entry\}} command to register a table of
+as \autodoc:code{\\chapter} or \autodoc:code{\\section}, your classes should call the
+\autodoc:code{\\tocentry[level=...]\{Entry\}} command to register a table of
 contents entry. At the end of each page, the exported Lua function
 \autodoc:function{moveTocNodes} should be called to collate the table of contents
 entries and store which page they’re on. At the end of the document,
@@ -155,8 +155,8 @@ control the depth of the content added to the table.
 If the \autodoc:package{pdf} package is loaded before using sectioning commands,
 then a PDF document outline will be generated.
 Moreover, entries in the table of contents will be active links to the
-relevant sections. To disable the latter behavior, pass \code{linking=false} to
-the \autodoc:command{\\tableofcontents} command.
+relevant sections. To disable the latter behavior, set the \autodoc:param{linking} parameter to
+false on the \autodoc:command{\\tableofcontents} command.
 
 Class designers can also style the table of contents by overriding the
 following commands:

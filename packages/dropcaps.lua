@@ -88,7 +88,7 @@ One caveat is that the size of the initials is calculated using the default line
 If you are using an alternative method from the linespacing package, you might see strange results.
 Set the \autodoc:setting{document.baselineskip} to approximate your effective leading value for best results.
 If that doesn't work set the size manually.
-Using \code{SILE.setCommandDefaults()} can be helpful for so you don't have to set the size every time.
+Using \autodoc:code{SILE.setCommandDefaults()} can be helpful for so you don't have to set the size every time.
 \end{note}
 \end{document}
 ]] }

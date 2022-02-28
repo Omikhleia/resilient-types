@@ -25,11 +25,11 @@ One of the reasons why Johann Gutenberg’s 42 line Bible is considered a
 masterpiece of early printing is due to the quality of justification of
 every line. To achieve perfect justification color, Gutenberg used a number
 of ligatures, abbreviations, substitutions and so on. As an experiment in
-extending SILE’s justification engine, the \code{gutenberg} package allows
+extending SILE’s justification engine, the \autodoc:package{gutenberg} package allows
 SILE to choose between a number of different options for a particular
 piece of text, depending on what would improve the line fitting.
 
-For instance, issuing the command \code{\\alternative\{\{and\}\{&\}\}} would insert
+For instance, issuing the command \autodoc:code{\\alternative\{\{and\}\{&\}\}} would insert
 either the text \examplefont{and} or an ampersand, depending on what best
 fits the current line.
 \end{document}

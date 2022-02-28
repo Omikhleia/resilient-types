@@ -40,7 +40,7 @@ font.
 
 \note{Despite the name, \autodoc:environment{verbatim} does not alter the way that SILE
 sees special characters. You still need to escape backslashes and braces:
-to produce a backslash, you need to write \code{\\\\}.}
+to produce a backslash, you need to write \autodoc:code{\\\\}.}
 
 Here is some text set in the verbatim environment:
 

@@ -153,7 +153,7 @@ entries. It provides the four commands \autodoc:command{\\pdf:destination}, \aut
 
 The \autodoc:command{\\pdf:destination} parameter creates a link target; it expects a
 parameter called \autodoc:param{name} to uniquely identify the target. To create a link to
-that location in the document, use \code{\\pdf:link[dest=\goodbreak{}name]\{link content\}}.
+that location in the document, use \autodoc:code{\\pdf:link[dest=\goodbreak{}name]\{link content\}}.
 
 The \autodoc:command{\\pdf:link} command accepts several options defining its border style:
 a \autodoc:param{borderwidth} length setting the border width (defaults to 0, meaning no border),
@@ -168,8 +168,8 @@ It also has an \autodoc:param{external} option for URL links, which is not inten
 directly—refer to the \autodoc:package{url} package for more flexibility typesetting external
 links.
 
-To set arbitrary key-value metadata, use something like \code{\\pdf:metadata[key=Author,
+To set arbitrary key-value metadata, use something like \autodoc:code{\\pdf:metadata[key=Author,
 value=J. Smith]}. The PDF metadata field names are case-sensitive. Common keys include
-\code{Title}, \code{Author}, \code{Subject}, \code{Keywords}, \code{CreationDate}, and
-\code{ModDate}.
+\autodoc:value{Title}, \autodoc:value{Author}, \autodoc:value{Subject}, \autodoc:value{Keywords},
+\autodoc:value{CreationDate}, and \autodoc:value{ModDate}.
 \end{document}]] }

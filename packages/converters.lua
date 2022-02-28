@@ -123,8 +123,8 @@ And now it just magically works:
 \line
 \end{verbatim}
 
-This will execute the command \code{convert hello.gif hello.jpg} and include
-the converted \code{hello.jpg} file.
+This will execute the command \autodoc:code{convert hello.gif hello.jpg} and include
+the converted \autodoc:code{hello.jpg} file.
 
 This trick also works for text file:
 

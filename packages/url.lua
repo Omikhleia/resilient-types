@@ -137,7 +137,7 @@ end)
 return {
   documentation = [[\begin{document}
 This package enhances the typesetting of URLs in two ways.
-First, it provides the \code{\\href[src=...]\{\}} command which
+First, it provides the \autodoc:command{\\href}\autodoc:code{[src=...]\{\}} command which
 inserts PDF hyperlinks,
   \href[src=http://www.sile-typesetter.org/]{like this}.
 
@@ -160,7 +160,7 @@ segments of an URL (path elements, query parts, fragments, etc.).
 By default, the \autodoc:command{\\url} command ignores the current language,
 as one would not want hyphenation to occur in URL segments. If you have no
 other choice, however, you can pass it a \autodoc:param{language} option
-to enforce a language to be applied. Note that if French (\code{fr})
+to enforce a language to be applied. Note that if French (\autodoc:value{fr})
 is selected, the special typographic rules applying to punctuations
 in this language are disabled.
 

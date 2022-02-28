@@ -142,25 +142,25 @@ SILE’s default method of inserting leading between lines should be familiar to
 users of TeX, but it is not the most friendly system for book designers. The
 \autodoc:package{linespacing} package provides a better choice of leading systems.
 
-After loading the package (with \code{\\script[src=packages/linespacing]}),
+After loading the package (with \autodoc:code{\\script[src=packages/linespacing]}),
 you are able to choose the linespacing mode by setting the \autodoc:setting{linespacing.method}
 parameter. The following examples have funny sized words in them so that you can see
 how the different methods interact.
 
-By default, this is set to \code{tex}. The other options available are:
+By default, this is set to \autodoc:value{tex}. The other options available are:
 
 \medskip
 \set[parameter=linespacing.method,value=fixed]
 \set[parameter=linespacing.fixed.baselinedistance,value=1.5em]
-\noindent{}• \code{fixed}. This set the lines at a fixed baseline-to-baseline distance,
-determined by the \code{linespacing.\goodbreak{}fixed.baselinedistance} parameter. You
-can specify this parameter either relative to the type size (e.g. \code{1.2em})
-or as a absolute distance (\code{15pt}). This paragraph is set with a fixed 1.5em
+\noindent{}• \autodoc:value{fixed}. This set the lines at a fixed baseline-to-baseline distance,
+determined by the \autodoc:setting{linespacing.fixed.baselinedistance} parameter. You
+can specify this parameter either relative to the type size (e.g. \autodoc:value{1.2em})
+or as a absolute distance (\autodoc:value{15pt}). This paragraph is set with a fixed 1.5em
 baseline-to-baseline distance.
 
 \medskip
 \set[parameter=linespacing.method,value=fit-glyph]
-\noindent{}• \code{fit-glyph}. This sets the lines solid; that is, the lowest point
+\noindent{}• \autodoc:value{fit-glyph}. This sets the lines solid; that is, the lowest point
 on line 1 (either a descender like \font[size=20pt]{q} or, if there are no descenders, the baseline) will
 touch the \font[size=20pt]{highest} point of line 2, as in this paragraph.
 You generally don’t want to use this as is.
@@ -168,12 +168,12 @@ You generally don’t want to use this as is.
 \set[parameter=linespacing.fit-glyph.extra-space,value=5pt]
 
 What you probably want to do is insert a constant (relative or absolute) s\font[size=20pt]{p}ace
-between the lines by setting the \code{linespacing.fit-glyph.extra-space} parameter.
+between the lines by setting the \autodoc:setting{linespacing.fit-glyph.extra-space} setting.
 \font[size=20pt]{T}his paragraph is set with 5 points of space between the descenders and the ascenders.
 
 \medskip
 \set[parameter=linespacing.method,value=fit-font]
-\noindent{}• \code{fit-font}. This inspects each hbox on the line, and asks the fonts
+\noindent{}• \autodoc:value{fit-font}. This inspects each hbox on the line, and asks the fonts
 it finds for their bounding boxes - the highest ascender and the lower descender. It
 then sets the lines solid. Essentially each character is treated as if it is the
 same height, rather like composing a slug of metal type. If
@@ -182,14 +182,14 @@ boxes, this may not work so well.
 
 \set[parameter=linespacing.fit-font.extra-space,value=5pt]
 
-As with \code{fit-glyph}, you can insert extra space between the lines with the
-\code{linespacing.fit-font.\goodbreak{}extra-space} parameter.
+As with \autodoc:value{fit-glyph}, you can insert extra space between the lines with the
+\autodoc:setting{linespacing.fit-font.extra-space} setting.
 
 \medskip
 \set[parameter=linespacing.method,value=css]
 \set[parameter=linespacing.css.line-height,value=2em]
-\noindent{}• \code{css}. This is similar to the method used in browsers; the baseline
-distance is set with the \code{linespacing.\goodbreak{}css.line-height} parameter, and the excess
+\noindent{}• \autodoc:value{css}. This is similar to the method used in browsers; the baseline
+distance is set with the \autodoc:setting{linespacing.css.line-height} setting, and the excess
 \font[size=20pt]{space} between this parameter and the actual height of the line is distributed
 between the top and bottom of the line.
 \medskip

@@ -26,7 +26,7 @@ available:
 \line
 \end{verbatim}
 
-If the argument to \autodoc:command{\\unichar} begins \code{U+}, \code{u+}, \code{0x} or \code{0X},
-then it is assumed to be a hexadecimal value. Otherwise it is assumed to be a
-decimal codepoint.
+If the argument to \autodoc:command{\\unichar} begins with \autodoc:code{U+}, \autodoc:code{u+},
+\autodoc:code{0x} or \autodoc:code{0X}, then it is assumed to be a hexadecimal value.
+Otherwise it is assumed to be a decimal codepoint.
 \end{document}]] }

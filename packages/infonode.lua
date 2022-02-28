@@ -46,6 +46,8 @@ return {
       SILE.scratch.info = { thispage = {} }
     end
   },
+-- FIXME documentation mentions endPage and gives code that could be very class-dependent,
+-- would need to be made more generic (obscure 'rhFrame' etc. are plain guess...)
   documentation = [[
 \begin{document}
 \note{This package is only for class designers.}
@@ -62,7 +64,7 @@ nodes} into the text stream; when a page is outputted, these nodes are collected
 a list, and a class’s output routine can examine this list to determine which nodes
 fell on a particular page. \autodoc:package{infonode} provides the \autodoc:command{\\info} command
 to put an information node into the text stream; it has two required parameters,
-\code{category=} and \code{value=}. Categories are used to group similar sets of
+\autodoc:param{category} and \autodoc:param{value}. Categories are used to group similar sets of
 node together.
 
 As an example, when typesetting a Bible, you may wish to display which range
@@ -75,7 +77,7 @@ SILE.call("info", { category = "references", value = ref }, {})
 \line
 \end{verbatim}
 
-During the \code{endPage} method which is called at the end of every page,
+During the \autodoc:code{endPage} method which is called at the end of every page,
 we look at the list of “references” information nodes:
 
 \begin{verbatim}

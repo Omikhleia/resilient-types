@@ -169,7 +169,7 @@ return { documentation = [[\begin{document}
 What happens when SILE is asked to typeset a character which is not in the
 current font? For instance, we are currently using the “Gentium” font, which
 covers a wide range of European scripts; however, it doesn’t contain any
-Japanese character. So what if I ask SILE to typeset \code{abc
+Japanese character. So what if I ask SILE to typeset \autodoc:code{abc
 \font[family=Noto Sans CJK JP]{あ}}?
 
 Many applications will find another font on the system containing the
@@ -178,7 +178,7 @@ be chosen? SILE is designed for typesetting situations where the document
 or class author wants complete control over the typographic appearance
 of the output, so it’s not appropriate for it to make a guess—besides,
 you asked for Gentium. So where the glyph is not defined, SILE will give
-you the current font’s “glyph not defined” symbol (a glyph called \code{.notdef})
+you the current font’s “glyph not defined” symbol (a glyph called \autodoc:code{.notdef})
 instead.
 
 But there are times when this is just too strict. If you’re typesetting

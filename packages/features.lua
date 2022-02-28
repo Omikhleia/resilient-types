@@ -229,8 +229,8 @@ These features can be turned on and off by passing ‘raw’ feature names to th
 However, this is unwieldy and requires memorizing the feature codes. This package
 provides two commands, \autodoc:command{\\add-font-feature} and \autodoc:command{\\remove-font-feature},
 which make it easier to access OpenType features. The interface is patterned on the
-TeX package \code{fontspec}; for full documentation of the OpenType features supported,
-see the documentation for that package.\footnote{\code{http://texdoc.net/texmf-dist/doc/latex/fontspec/fontspec.pdf}}
+TeX package \autodoc:code{fontspec}; for full documentation of the OpenType features supported,
+see the documentation for that package.\footnote{\autodoc:code{http://texdoc.net/texmf-dist/doc/latex/fontspec/fontspec.pdf}}
 
 Here is how you would turn on discretionary and historic ligatures with the \autodoc:package{features}
 package:

@@ -64,7 +64,7 @@ return {
 The \autodoc:package{chapterverse} package is designed as a helper package for
 book classes which deal with versified content such as scriptures. It
 provides commands which will generally be called by the higher-level
-\code{\\verse} and \code{\\chapter} (or moral equivalent) commands of the
+\autodoc:code{\\verse} and \autodoc:code{\\chapter} (or moral equivalent) commands of the
 classes which handle this kind of content:
 
 \noindent{}• \autodoc:command{\\save-book-title} takes its argument and squirrels
@@ -74,9 +74,9 @@ it away as the current book name.
 does the same but for the chapter and verse reference respectively.
 
 \noindent{}• \autodoc:command{\\format-reference} is expected to be called from
-Lua code with a content table of \code{\{book = ..., chapter = ..., verse = ...\}}
-and typesets the reference in the form \code{cc:vv}.
-If the parameter \code{[showbook=true]} is given then the book name
+Lua code with a content table of \autodoc:code{\{book = ..., chapter = ..., verse = ...\}}
+and typesets the reference in the form \autodoc:code{cc:vv}.
+If the optional parameter \autodoc:param{showbook} is set to true then the book name
 is also output. (You can override this command to output your references
 in a different format.)
 
