@@ -229,10 +229,10 @@ of where to put text onto the page. The \autodoc:package{frametricks} package as
 package authors by providing a number of commands to manipulate frames.
 
 The most immediately useful is \autodoc:command{\\showframe}. This asks the output
-engine to draw a box and label around a particular frame. It takes an optional
-parameter \code{id=\em{<frame id>}}; if this is not supplied, the current
-frame is used. If the ID is \code{all}, then all frames declared by the
-current class are displayed.
+engine to draw a box and label around frame(s). It takes an optional
+parameter \autodoc:param{id}; if this is not supplied, the current
+frame is used. If set to \autodoc:value{all}, then all frames declared by the
+current class are displayed. Otheriwise; it targets the specified frame.
 
 It’s possible to define frames such as sidebars which are not connected
 to the main text flow of a page. We’ll see how to do that in a later chapter, but

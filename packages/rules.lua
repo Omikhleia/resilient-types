@@ -127,7 +127,7 @@ Like images, rules are placed along the baseline of a line of text.
 The second command is \autodoc:command{\\underline}, which
 underlines its contents.
 
-\note{
+\autodoc:note{
 Underlining is horrible typographic practice, and
 you should \underline{never} do it.}
 

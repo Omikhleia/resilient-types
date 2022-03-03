@@ -170,6 +170,7 @@ end, "Stops grid typesetting.")
 return {
   documentation = [[
 \begin{document}
+\script[src=packages/image]
 \grid[spacing=15pt]
 In normal typesetting, SILE determines the spacing between lines of type
 according to the following two rules:

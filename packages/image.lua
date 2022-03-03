@@ -38,10 +38,10 @@ to specify the output size of the image on the paper. If the size parameters
 are not given, then the image will be output at its ‘natural’ size,
 honoring its resolution if available.
 
-\begin{note}
+\begin{autodoc:note}
 With the libtexpdf backend (the default), the images can be in JPEG, PNG,
 EPS or PDF formats.
-\end{note}
+\end{autodoc:note}
 
 Here is a 200x243 pixel image output with \autodoc:code{\\img[src=documentation/gutenberg.png]}.
 The image has a claimed resolution of 100 pixels per inch, so ends up being 2 inches (144pt)

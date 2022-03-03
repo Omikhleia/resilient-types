@@ -38,6 +38,7 @@ return {
 -- FIXME documentation mentions class:loadPackage, not general enough (it could be loaded with
 -- just SILE.require in a package that needs it, etc.)
   documentation = [[\begin{document}
+\script[src=packages/url]
 The \autodoc:package{inputfilter} package provides ways for class authors to transform the
 input of a SILE document after it is parsed but before it is processed. It does
 this by allowing you to rewrite the abstract syntax tree representing the document.

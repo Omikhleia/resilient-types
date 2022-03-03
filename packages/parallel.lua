@@ -134,6 +134,7 @@ return {
   init = setupParallel,
   documentation = [[
 \begin{document}
+\script[src=packages/url]
 The parallel package provides the mechanism for typesetting diglot or other
 parallel documents. When used by a class such as \autodoc:code{classes/diglot.lua},
 it registers a command for each parallel frame, to allow you to select

@@ -3,7 +3,7 @@ require("packages/math/typesetter")
 return {
   documentation = [[
 \begin{document}
-
+\script[src=packages/url]
 \set[parameter=math.font.family, value=Libertinus Math]
 \set[parameter=math.font.size, value=11]
 
@@ -13,7 +13,7 @@ return {
 
 This package provides typesetting of formulas directly in a SILE document.
 
-\note{Mathematical typesetting in SILE is still in its infancy. As such, it
+\autodoc:note{Mathematical typesetting in SILE is still in its infancy. As such, it
 lacks some features and may contain bugs. Feedback and contributions are always
 welcome.}
 

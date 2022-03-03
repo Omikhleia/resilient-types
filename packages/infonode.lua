@@ -50,7 +50,7 @@ return {
 -- would need to be made more generic (obscure 'rhFrame' etc. are plain guess...)
   documentation = [[
 \begin{document}
-\note{This package is only for class designers.}
+\autodoc:note{This package is only for class designers.}
 
 While typesetting a document, SILE first breaks a paragraph into lines, then
 arranges lines into a page, and later outputs the page. In other words,

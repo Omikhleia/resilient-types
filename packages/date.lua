@@ -20,6 +20,8 @@ return {
     date = date
   },
 documentation = [[\begin{document}
+\script[src=packages/url]
+
 The \autodoc:package{date} package provides the \autodoc:command{date} command, which simply
 outputs the date using the system’s date function. You can customize
 the format by passing the \autodoc:param{format} parameter, following the

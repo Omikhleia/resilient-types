@@ -96,8 +96,8 @@ end)
 
 return { documentation = [[\begin{document}
 The \autodoc:package{rotate} package allows you to rotate things. You can rotate entire
-frames, by adding the \autodoc:code{rotate=<angle>} declaration to your frame declaration,
-and you can rotate any content by issuing the command \autodoc:code{\\rotate[angle=<angle>]\{...\}},
+frames, by adding the \autodoc:code{rotate=\autodoc:args{angle}} declaration to your frame declaration,
+and you can rotate any content by issuing the command \autodoc:command{\\rotate}\autodoc:code{[angle=\autodoc:args{angle}]\{...\}},
 where the angle is measured in degrees.
 
 Content which is rotated is placed in a box and rotated. The height and width of

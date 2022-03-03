@@ -104,6 +104,9 @@ return {
 
   documentation = [[
 \begin{document}
+\script[src=packages/ruby]
+% FIXME weird, because the package has an init()
+% FIXME But see also % See https://github.com/sile-typesetter/sile/issues/1245
 Japanese texts often contain pronunciation hints (called \em{furigana}) for
 difficult kanji or foreign words. These hints are traditionally placed either
 above (in horizontal typesetting) or beside (in vertical typesetting) the word

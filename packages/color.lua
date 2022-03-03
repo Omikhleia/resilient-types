@@ -18,7 +18,7 @@ it can be a RGB color value in \autodoc:value{#xxx} or \autodoc:value{#xxxxxx} f
 represents a hexadecimal digit (\autodoc:value{#000} is black, \autodoc:value{#fff} is white,
 \autodoc:value{#f00} is red and so on), or it can be one of the HTML and CSS named colors.
 
-\note{The HTML and CSS named colors can be found at \autodoc:code{http://dev.w3.org/csswg/css-color/#named-colors}.}
+\autodoc:note{The HTML and CSS named colors can be found at \autodoc:code{http://dev.w3.org/csswg/css-color/#named-colors}.}
 
 So, for example, \color[color=red]{this text is typeset with \autodoc:code{\\color[color=red]\{…\}}}.
 

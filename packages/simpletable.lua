@@ -86,7 +86,7 @@ myclass:loadpackage("simpletable", \{
 \end{verbatim}
 
 this will define commands \autodoc:code{\\a}, \autodoc:code{\\b} and \autodoc:code{\\c} which
-are equivalent to the \autodoc:code{<table>, \autodoc:code{<tr>} and \autodoc:code{<td>} tags.
+are equivalent to the \autodoc:code{<table>}, \autodoc:code{<tr>} and \autodoc:code{<td>} tags.
 
 this is not a complete table implementation, and should be replaced by
 one which implements the CSS 2.1 two-pass table formatting algorithm.

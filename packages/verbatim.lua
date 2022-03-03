@@ -38,7 +38,7 @@ so that text is set ragged right, with no hyphenation, no indentation and
 regular spacing. It tells SILE to honor multiple spaces, and sets a monospaced
 font.
 
-\note{Despite the name, \autodoc:environment{verbatim} does not alter the way that SILE
+\autodoc:note{Despite the name, \autodoc:environment{verbatim} does not alter the way that SILE
 sees special characters. You still need to escape backslashes and braces:
 to produce a backslash, you need to write \autodoc:code{\\\\}.}
 
