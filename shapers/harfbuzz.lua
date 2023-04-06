@@ -54,6 +54,7 @@ function shaper:shapeToken (text, options)
   for i = 1, #items do
     local j = (i == #items) and #text or items[i+1].index
     items[i].text = text:sub(items[i].index+1, j) -- Lua strings are 1-indexed
+    --print(options.tracking, items[i].text)
     if options.tracking then
       items[i].width = items[i].width * options.tracking
     end

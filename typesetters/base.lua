@@ -193,7 +193,7 @@ end
 
 -- Boxy stuff
 function typesetter:pushHorizontal (node)
-  self:initline()
+  self:initline(true)
   self.state.nodes[#self.state.nodes+1] = node
   return node
 end
@@ -282,7 +282,12 @@ function typesetter:typeset (text)
   SILE.traceStack:pop(pId)
 end
 
-function typesetter:initline ()
+function typesetter:initline (h)
+  if h then
+    if #self.state.nodes == 0 then
+      return
+    end 
+  end
   if self.state.hmodeOnly then return end -- https://github.com/sile-typesetter/sile/issues/1718
   if (#self.state.nodes == 0) then
     self.state.nodes[#self.state.nodes+1] = SILE.nodefactory.zerohbox()
@@ -305,7 +310,10 @@ function typesetter:setpar (text)
     self:initline()
   end
   if #text >0 then
-    self:pushUnshaped({ text = text, options= SILE.font.loadDefaults({})})
+    local options = SILE.font.loadDefaults({})
+    options.tracking = SILE.settings:get("shaper.tracking")
+   -- print("HERE", options.tracking)
+    self:pushUnshaped({ text = text, options= options})
   end
 end
 
@@ -769,6 +777,19 @@ function typesetter.computeLineRatio (_, breakwidth, slice)
   while n > 1 do
     if slice[n].is_glue or slice[n].is_zero then
       if slice[n].value ~= "margin" then
+        if slice[n].width:tonumber() ~= 0 then
+          print("DOH", slice[n])
+        end
+        slice[n] = SILE.nodefactory.glue(pl.tablex.copy(slice[n]))
+        slice[n].outputYourself = function (self, t, line)
+          local outputWidth = SU.rationWidth(self.width:absolute(), self.width:absolute(), line.ratio)
+          local X = t.frame.state.cursorX
+          local Y = t.frame.state.cursorY
+          SILE.outputter:drawRule(X, Y, outputWidth:tonumber()+1, 5)
+          t.frame:advanceWritingDirection(outputWidth)
+          --print(" DOH", outputWidth)
+          
+        end
        naturalTotals:___sub(slice[n].width)
       end
     elseif slice[n].is_discretionary then

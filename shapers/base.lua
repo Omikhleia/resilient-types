@@ -90,7 +90,7 @@ end
 function shaper.preAddNodes (_, _, _) end
 
 function shaper:createNnodes (token, options)
-  options.tracking = SILE.settings:get("shaper.tracking")
+  --options.tracking = SILE.settings:get("shaper.tracking")
   local items, _ = self:shapeToken(token, options)
   if #items < 1 then return {} end
   local lang = options.language

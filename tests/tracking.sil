@@ -3,7 +3,7 @@
 \font[size=20pt]
 \set[parameter=document.parindent,value=0]
 % Defaults for comparison
-Stereotypical road
+Stereotypical road effect
 
 % Should be no different
 \set[parameter=shaper.tracking,value=1]
@@ -11,10 +11,14 @@ Stereotypical road
 
 % Should be 20% more than default
 \set[parameter=shaper.tracking,value=1.2]
-Stereotypical road
+Stereotypical road effect
+
+% Should be 20% more than default
+\set[parameter=shaper.tracking,value=1]
+\set[parameter=shaper.tracking,value=1.2]{Stereotypical} road effect 1.2
 
 % Leterspaceglue method for comparison
 \set[parameter=shaper.tracking]
 \set[parameter=document.letterspaceglue,value=.1em]
-Stereotypical road
+Stereotypical road effect
 \end{document}
