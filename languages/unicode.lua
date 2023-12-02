@@ -43,6 +43,15 @@ SILE.nodeMakers.base = pl.class({
       self.lasttype = "sp"
     end,
 
+    makeShy = function (self)
+      local t = self
+      coroutine.yield((function ()
+        local hyphen = SILE.shaper:createNnodes(SILE.settings:get("font.hyphenchar"), t.options)
+        return SILE.nodefactory.discretionary({ prebreak = hyphen })
+      end)())
+      self.lastnode = "discretionary"
+    end,
+
     makePenalty = function (self, p)
       if self.lastnode ~= "penalty" and self.lastnode ~= "glue" then
         coroutine.yield( SILE.nodefactory.penalty({ penalty = p or 0 }) )
@@ -74,6 +83,11 @@ SILE.nodeMakers.base = pl.class({
 
     isSpace = function (self, char)
       return self.isSpaceType[self:charData(char).linebreak]
+    end,
+
+    isShy = function (self, char)
+      local c = self:charData(char)
+      return c.contextname and c.contextname == "softhyphen"
     end,
 
     isNonBreakingSpace = function (self, char)
@@ -112,6 +126,10 @@ function SILE.nodeMakers.unicode:dealWith (item)
   elseif self:isActiveNonBreakingSpace(item.text) then
     self:makeToken()
     self:makeNonBreakingSpace()
+  elseif self:isShy(item.text) then
+    -- Must come before isBreaking: a soft-hyphen is a break.
+      self:makeToken()
+      self:makeShy()
   elseif self:isBreaking(item.text) then
     self:addToken(char, item)
     self:makeToken()
@@ -176,6 +194,10 @@ end
 
 function SILE.nodeMakers.unicode:handleWordBreak (item)
   self:makeToken()
+  if self:isShy(item.text) then
+    self:makeShy()
+    return
+  end
   if self:isSpace(item.text) then
     -- Spacing word break
     self:makeGlue(item)
@@ -183,7 +205,7 @@ function SILE.nodeMakers.unicode:handleWordBreak (item)
     -- Non-breaking space word break
     self:makeNonBreakingSpace()
   else
-     -- a word break which isn't a space
+    -- a word break which isn't a space
     self:addToken(item.text, item)
   end
 end
@@ -196,8 +218,20 @@ function SILE.nodeMakers.unicode:handleLineBreak (item, subtype)
     self:handleWordBreak(item)
     return
   end
+  if self:isShy(item.text) then
+    self:makeToken()
+    self:makeShy()
+    return
+  end
+  if self.lastnode == "discretionary" then
+    -- already handled via soft hyphen.
+    self:addToken(item.text, item)
+    return
+  end
+
   -- But explicit line breaks we will turn into
   -- soft and hard breaks.
+  -- NB. No hyphenation character in that case.
   self:makeToken()
   self:makePenalty(subtype == "soft" and 0 or -1000)
   local char = item.text
