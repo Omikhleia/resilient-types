@@ -461,6 +461,11 @@ function package:registerCommands ()
       end
       SILE.call("bibLink", { src = link }, content)
    end)
+   self:registerCommand("bibRule", function (_, _)
+      SILE.call("raise", { height = "0.4ex" }, function ()
+         SILE.call("hrule", { height = "0.4pt", width = "3em" })
+      end)
+   end)
 
    -- Style and locale loading
 

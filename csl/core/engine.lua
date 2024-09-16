@@ -92,6 +92,19 @@ function CslEngine:_init (style, locale, extras)
          self.style.bibliography and self.style.bibliography.options or {}
       ),
    }
+
+   self.subsequentAuthorSubstitute = self.inheritable["bibliography"]["subsequent-author-substitute"]
+   if self.subsequentAuthorSubstitute then
+      -- With many fonts, a sequence of 3 dashes is not looking that good.
+      -- So replace them with a command, and let the typesetter decide
+      -- for a better rendering.
+      -- NOTE: Not bothering regarding other sequences for now. Chicago and
+      -- MLA styles use a sequence of 3 dashes.
+      local _, count = luautf8.gsub(self.subsequentAuthorSubstitute, "[–—-]", "") -- naive count
+      if count >= 3 then
+         self.subsequentAuthorSubstitute = "<bibRule/>"
+      end
+   end
 end
 
 function CslEngine:_prerender ()
@@ -101,6 +114,12 @@ function CslEngine:_prerender ()
 
    -- Track first name for name-as-sort-order
    self.firstName = true
+
+   -- Track first rendered cs:names for subsequent-author-substitute
+   self.hasRenderedNames = false
+   -- Track authors for subsequent-author-substitute
+   self.precAuthors = self.currentAuthors
+   self.currentAuthors = {}
 end
 
 function CslEngine:_merge_locales (locale1, locale2)
@@ -748,6 +767,9 @@ function CslEngine:_name_et_al (options)
 end
 
 function CslEngine:_a_name (options, content, entry)
+   if entry.literal then -- pass through literal names
+      return entry.literal
+   end
    if not entry.family then
       -- There's one element in a name we can't do without.
       SU.error("Name without family: what do you expect me to do with it?")
@@ -893,15 +915,27 @@ function CslEngine:_names_with_resolved_opts (options, substitute_node, entry)
          local needEtAl = false
          local names = type(entry[var]) == "table" and entry[var] or { entry[var] }
          local l = {}
-         for i, name in ipairs(names) do
-            if #names >= et_al_min and i > et_al_use_first then
-               needEtAl = true
-               break
-            end
-            local t = self:_a_name(name_node.options, name_node, name)
-            self.firstName = false
-            table.insert(l, t)
+
+         -- FIXME EXPLAIN
+         if not self.hasRenderedNames then
+            pl.tablex.insertvalues(self.currentAuthors, names)
          end
+         if not self.sorting and self.subsequentAuthorSubstitute and
+            not self.hasRenderedNames and self.precAuthors and pl.tablex.deepcompare(names, self.precAuthors) then
+            table.insert(l, "<bibRule>" .. self.subsequentAuthorSubstitute .. "</bibRule>")
+            self.firstName = false
+         else
+            for i, name in ipairs(names) do
+               if #names >= et_al_min and i > et_al_use_first then
+                  needEtAl = true
+                  break
+               end
+               local t = self:_a_name(name_node.options, name_node, name)
+               self.firstName = false
+               table.insert(l, t)
+            end
+         end
+
          local joined
          if needEtAl then
             -- TODO THINGS TO SUPPORT THAT MIGHT REQUIRE A REFACTOR
@@ -909,7 +943,7 @@ function CslEngine:_names_with_resolved_opts (options, substitute_node, entry)
             --    delimiter-precedes-et-al ("contextual" by default = hard-coded)
             --    et-al-use-last (default false, if true, the last is rendered as ", ... Name) instead of using et-al.
             local rendered_et_all = self:_name_et_al(et_al_opts)
-            local sep_et_al = #l > 1 and name_delimiter
+            local sep_et_al = #l > 1 and name_delimiter or " "
             joined = table.concat(l, name_delimiter) .. sep_et_al .. rendered_et_all
          elseif #l == 1 then
             joined = l[1]
@@ -1002,7 +1036,11 @@ function CslEngine:_names (options, content, entry)
    }
    resolved = pl.tablex.union(options, resolved)
 
-   return self:_names_with_resolved_opts(resolved, substitute, entry)
+   local rendered = self:_names_with_resolved_opts(resolved, substitute, entry)
+   if rendered and not self.hasRenderedNames then
+      self.hasRenderedNames = true
+   end
+   return rendered
 end
 
 function CslEngine:_label (options, content, entry)
