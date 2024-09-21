@@ -208,6 +208,10 @@ function SILE.init ()
    if not SILE.backend then
       SILE.backend = "libtexpdf"
    end
+   if SILE.backend == "ast" then
+      runEvals(SILE.input.evaluates, "evaluate")
+      return -- Short circuit for AST processing only
+   end
    if SILE.backend == "libtexpdf" then
       SILE.shaper = SILE.shapers.harfbuzz()
       SILE.outputter = SILE.outputters.libtexpdf()
@@ -695,7 +699,9 @@ end
 -- 5. Close out the Lua profiler if it was running.
 -- 6. Output version information if versions debug flag is set.
 function SILE.finish ()
-   SILE.documentState.documentClass:finish()
+   if SILE.documentState.documentClass then
+      SILE.documentState.documentClass:finish()
+   end
    SILE.font.finish()
    runEvals(SILE.input.evaluateAfters, "evaluate-after")
    if SILE.makeDeps then

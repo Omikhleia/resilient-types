@@ -49,6 +49,9 @@ end
 function inputter:process (doc)
    -- Input parsers can already return multiple ASTs, but so far we only process one
    local tree = self:parse(doc)[1]
+   if not SILE.outputter then
+      return pl.pretty.dump(tree)
+   end
    self:requireClass(tree)
    return SILE.process(tree)
 end
