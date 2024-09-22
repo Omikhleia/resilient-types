@@ -114,7 +114,7 @@ local function ast_from_parse_tree (tree, doc, depth)
       or tree.id == "braced_passthrough_text"
       or tree.id == "env_passthrough_text"
    then
-      -- Thes nodes have only one child, which needs recursion
+      -- These nodes have only one child, which needs recursion.
       SU.debug("inputter", sep and (sep .. "Massaging a node"))
       res = ast_from_parse_tree(tree[1], doc, depth)
       --res = #res > 1 and not res.id and res or res[1]
@@ -125,19 +125,35 @@ local function ast_from_parse_tree (tree, doc, depth)
    then
       -- These nodes have multiple children, which need recursion.
       SU.debug("inputter", sep and (sep .. "Processing command"), tree.command, #tree, "subtrees")
-      for i, node in ipairs(tree) do
+      local newtree = { -- I don't think we can avoid a shallow copy here
+         command = tree.command,
+         options = tree.options,
+         id = tree.id,
+         lno = tree.lno,
+         col = tree.col
+      }
+      for _, node in ipairs(tree) do
          if type(node) == "table" then
             SU.debug("inputter", sep and (sep .. " -"), node.id or "table")
-            tree[i] = ast_from_parse_tree(node, doc, depth)
-            -- Simplify the tree if it's just a list
-            if type(tree[i]) == "table" and not tree[i].id then
+            local ast_node = ast_from_parse_tree(node, doc, depth)
+            if type(ast_node) == "table" and not ast_node.id then
                SU.debug("inputter", sep and (sep .. " -"), "Collapsing subtree")
-               SU.splice(tree, i, i, tree[i])
+               -- Comments can an empty table, skip them
+               if #ast_node > 0 then
+                  -- Simplify the tree if it's just a plain list
+                  for _, child in ipairs(ast_node) do
+                     if type(child) ~= "table" or child.id or #child > 0 then
+                        table.insert(newtree, child)
+                     end
+                  end
+               end
+            else
+               table.insert(newtree, ast_node)
             end
          end
          -- Non table nodes are skipped (e.g. extraneous text from 'raw' commands)
       end
-      res = tree
+      res = newtree
    elseif tree.id == "content" then
       -- This node has multiple children, which need recursion
       -- And the node itself needs to be replaced with its children
